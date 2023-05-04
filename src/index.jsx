@@ -1,16 +1,19 @@
 import { createRoot } from 'react-dom/client';
+import Container from 'react-bootstrap/Container';
 
+import { MainView } from './components/main-view/main-view';
+
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.scss';
 
-const MyLibraryApplication = () => {
+const App = () => {
   return (
-    <div className="my-library">
-      <div>Good morning</div>
-    </div>
+    <Container>
+      <MainView />
+    </Container>
   );
 };
 
 const container = document.querySelector('#root');
 const root = createRoot(container);
-
-root.render(<MyLibraryApplication />);
+root.render(<App />);
