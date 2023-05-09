@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
+import { useParams } from 'react-router-dom';
+
 import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
 import Form from 'react-bootstrap/Form';
 
 import './login-view.scss';
 
 export const LoginView = ({ onLoggedIn }) => {
+  const { id } = useParams();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -45,31 +49,35 @@ export const LoginView = ({ onLoggedIn }) => {
   };
 
   return (
-    <Form onSubmit={handleSubmit}>
-      <Form.Label className="loginLabel">Login</Form.Label>
-      <Form.Group controlId="formUsernameLogin">
-        <Form.Label>Email:</Form.Label>
-        <Form.Control
-          type="text"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-          minLength="3"
-        />
-      </Form.Group>
+    <div style={{ height: '100vw', width: '30vw' }} key={id}>
+      <Card className="login">
+        <Form onSubmit={handleSubmit}>
+          <Form.Label className="loginLabel">Login</Form.Label>
+          <Form.Group controlId="formEmailLogin">
+            <Form.Label>Email:</Form.Label>
+            <Form.Control
+              type="text"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+              minLength="3"
+            />
+          </Form.Group>
 
-      <Form.Group controlId="formPasswordLogin">
-        <Form.Label>Password:</Form.Label>
-        <Form.Control
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-      </Form.Group>
-      <Button variant="primary" type="submit">
-        Submit
-      </Button>
-    </Form>
+          <Form.Group controlId="formPasswordLogin">
+            <Form.Label>Password:</Form.Label>
+            <Form.Control
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+          </Form.Group>
+          <Button variant="success" type="submit">
+            Submit
+          </Button>
+        </Form>
+      </Card>
+    </div>
   );
 };

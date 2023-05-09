@@ -3,3 +3,10 @@ $color: steelblue;
 .my-library {
   color: $color;
 }
+
+.bg {
+  background-image: url(./images/books.jpg);
+  width: 200px;
+  height: 200px;
+  background-size: cover;
+}

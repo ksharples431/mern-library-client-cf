@@ -5,12 +5,15 @@ import { MainView } from './components/main-view/main-view';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.scss';
+import background from './images/bookshelfempty.png';
 
 const App = () => {
   return (
-    <Container>
-      <MainView />
-    </Container>
+    <div style={{ backgroundImage: `url(${background})` }}>
+      <Container>
+        <MainView />
+      </Container>
+    </div>
   );
 };
 
